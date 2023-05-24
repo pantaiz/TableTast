@@ -1,54 +1,36 @@
-import styles from "./PageList.module.scss";
 import {DatasType} from "../ListType";
-import {TABLE_HEADER_ACCOUNT, TABLE_HEADER_NAME} from "./const";
+import * as React from 'react';
+import {DataGrid, GridColDef} from '@mui/x-data-grid';
 
 
 type PageListPropsType = {
     data: Array<DatasType>
 }
-type RowPropsType = {
-    name: {
-        first: string
-        last: string
-    }
-    amount: string
-}
-
+const columns: GridColDef[] = [
+    { field: 'name', headerName: 'Name', width:350 },
+    { field: 'amount', headerName: 'Amount', width: 350 },
+];
 export const PageList = (props: PageListPropsType) => {
-    //создаём наши строки таблицы
-    const rows = props.data.map((item) => <Row key={item._id} name={item.name} amount={item.amount}/>)
 
-    return (
-        <div>
-            <HeaderTable/>
-            {rows}
-        </div>
-    )
-}
+    const rows=props.data.map(item=>{
+        return({
+            id:item._id,
+            name:item.name.first+' '+item.name.last,
+            amount:item.amount})
+    })
 
-
-const HeaderTable = () => {
-    return (
-        <div className={styles.rowHeader}>
-            <div className={styles.itemHeader}>
-                {TABLE_HEADER_NAME}
-            </div>
-            <div className={styles.itemHeader}>
-                {TABLE_HEADER_ACCOUNT}
-            </div>
-        </div>
-    )
-}
-const Row = ({name, amount}: RowPropsType) => {
-    return (
-        <div className={styles.row}>
-            <div className={styles.itemRow}>
-                {name.first} {name.last}
-            </div>
-            <div className={styles.itemRow}>
-                {amount}
-            </div>
-        </div>
-    )
+    return <div style={{ height: '100%', width: '100%' }}>
+        <DataGrid
+            rows={rows}
+            columns={columns}
+            initialState={{
+                pagination: {
+                    paginationModel: { page: 0, pageSize: 10 },
+                },
+            }}
+            pageSizeOptions={[5, 10,15,20]}
+            checkboxSelection
+        />
+    </div>
 }
 

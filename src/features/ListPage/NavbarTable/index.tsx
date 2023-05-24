@@ -2,6 +2,7 @@ import {LIST_PAGE_HEADER_TITLES as TablePages} from "./../const";
 import styles from "./HeaderList.module.scss";
 import classNames from "classnames";
 import {pageType} from "../ListType";
+import {Box, Button, ButtonGroup} from "@mui/material";
 
 type HeaderListPropsType = {
     currentPage: pageType
@@ -13,7 +14,7 @@ export const HeaderList = (
         currentPage,
         setSearchParams
     }
-    : HeaderListPropsType) => {
+        : HeaderListPropsType) => {
 
 
     const onTitleClickHadler = (index: string) => {
@@ -26,17 +27,21 @@ export const HeaderList = (
         const titleClassName = classNames(styles.title, page.type === currentPage ? styles.activeTitle : '')
 
         return (
-            <div key={page.type} onClick={() => onTitleClickHadler(index.toString())} className={titleClassName}>
+            <Button size={'large'} color={"secondary"} key={page.type} variant={page.type === currentPage?'contained':'outlined'} onClick={() => onTitleClickHadler(index.toString())}>
                 {page.title}
-            </div>
+            </Button>
         )
     })
 
     return (
+        <Box component="nav"  aria-label="My site" sx={{display:'flex',justifyContent:'space-around',alignItems:'center',padding: '20px'}}>
 
-        <div  className={styles.headerWrapper}>
-            {mappedHeaderTitles}
-        </div>
 
+                    {mappedHeaderTitles}
+            <ButtonGroup>
+                </ButtonGroup>
+
+
+        </Box>
     )
 }
