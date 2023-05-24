@@ -7,6 +7,7 @@ type PageListPropsType = {
     data: Array<DatasType>
 }
 const columns: GridColDef[] = [
+
     { field: 'name', headerName: 'Name', width:350 },
     { field: 'amount', headerName: 'Amount', width: 350 },
 ];
@@ -29,7 +30,7 @@ export const PageList = (props: PageListPropsType) => {
                 },
             }}
             pageSizeOptions={[5, 10,15,20]}
-            checkboxSelection
+
         />
     </div>
 }

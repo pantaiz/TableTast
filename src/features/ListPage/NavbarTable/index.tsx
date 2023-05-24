@@ -36,9 +36,9 @@ export const HeaderList = (
     return (
         <Box component="nav"  aria-label="My site" sx={{display:'flex',justifyContent:'space-around',alignItems:'center',padding: '20px'}}>
 
-
-                    {mappedHeaderTitles}
             <ButtonGroup>
+                    {mappedHeaderTitles}
+
                 </ButtonGroup>
 
 
