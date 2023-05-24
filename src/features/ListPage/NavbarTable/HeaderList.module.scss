@@ -1,0 +1,11 @@
+
+  .headerWrapper {
+@apply flex justify-around pt-1
+
+  }
+  .title {
+    @apply w-1/4 h-16 flex justify-center items-center rounded-t-lg border-x-2 border-black border-t-4 border-b-black
+  }
+  .activeTitle{
+    @apply text-blue-950 bg-gray-300
+      }

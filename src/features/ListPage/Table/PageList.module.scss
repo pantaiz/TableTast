@@ -1,0 +1,15 @@
+.rowHeader{
+  @apply flex mx-5
+
+}
+.row{
+  @apply flex mx-5
+
+}
+.itemHeader{
+@apply pt-10  font-bold flex justify-center w-1/2  border-b-2
+}
+.itemRow{
+  @apply flex justify-center items-center w-1/2  border-b-2
+
+}

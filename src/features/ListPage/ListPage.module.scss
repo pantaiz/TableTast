@@ -1,0 +1,14 @@
+.mainContainer {
+  @apply table-auto p-10
+
+}
+.tabbleWrapper {
+@apply w-[800px] flex flex-col flex-nowrap border-2 border-black
+}
+/*  width: 800px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+
+  border: 2px solid black ;
+*/
